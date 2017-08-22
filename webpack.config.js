@@ -30,7 +30,7 @@ const babelRule = {
   loader: 'babel-loader',
   exclude: /(node_modules|bower_components)/,
   query: {
-    presets: ['es2015', 'es2017', 'react'],
+    presets: ['es2015', 'env', 'react'],
     plugins: ['transform-class-properties', 'transform-object-rest-spread'],
   },
 };

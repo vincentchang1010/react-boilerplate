@@ -22,7 +22,7 @@ type CompPropTypes = {
   reloadPageNotify: Object,
 };
 
-class VincentClientApp extends React.Component<any> {
+class ReactClientApp extends React.Component<any> {
   static contextTypes = {
     store: PropTypes.object,
     i18n: PropTypes.object,
@@ -130,4 +130,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default translate(['common'], { wait: true })(
-  connect(mapStateToProps, mapDispatchToProps)(VincentClientApp));
+  connect(mapStateToProps, mapDispatchToProps)(ReactClientApp));

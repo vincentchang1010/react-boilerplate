@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { I18nextProvider } from 'react-i18next';
 import { browserHistory, Redirect, Route, Router } from 'react-router';
 
-import VincentClientApp from './components/vincent-client-app';
+import ReactClientApp from './components/react-client-app';
 import MainPage from './components/main-page';
 import LoginPage from './components/login-page';
 import FirstPage from './components/first-page';
@@ -28,7 +28,7 @@ ReactDom.render(
 
           <Redirect from="/" to={`/${RouteLinks.LOGIN}`} />
 
-          <Route path="/" component={VincentClientApp}>
+          <Route path="/" component={ReactClientApp}>
 
             <Route path={`${RouteLinks.LOGIN}`} component={LoginPage} />
 
