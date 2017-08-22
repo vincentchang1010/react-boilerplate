@@ -12,16 +12,16 @@ const webpackContext = (new function () {
 // webpackContext.debugMode value should be passed via cli
 process.argv.forEach((val, index) => {
   if (val !== '--define') {
-  return;
-}
+    return;
+  }
 
-const defineContent = process.argv[index + 1];
+  const defineContent = process.argv[index + 1];
 
-if (defineContent.indexOf('DEBUG_MODE') === -1) {
-  return;
-}
+  if (defineContent.indexOf('DEBUG_MODE') === -1) {
+    return;
+  }
 
-webpackContext.debugMode = defineContent.split('=')[1].toLowerCase() === 'true';
+  webpackContext.debugMode = defineContent.split('=')[1].toLowerCase() === 'true';
 });
 
 // default config(production)
@@ -30,7 +30,14 @@ const babelRule = {
   loader: 'babel-loader',
   exclude: /(node_modules|bower_components)/,
   query: {
-    presets: ['es2015', 'env', 'react'],
+    presets: [
+      ['env', {
+        targets: {
+          browsers: ['defaults', 'not IE <= 10'],
+        },
+      }],
+      'react',
+    ],
     plugins: ['transform-class-properties', 'transform-object-rest-spread'],
   },
 };
